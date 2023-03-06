@@ -1,0 +1,110 @@
+#Lab 4C
+def max_check(x):
+    max_val = x[0] 
+    for check in x:
+        if check > max_val: 
+            max_val = check 
+    return max_val
+  
+#Definition 2 definies the minimum grade of the list by sorting each value in the list to find the minimum. 
+def min_check(x):
+    min_val = x[0] 
+    for check in x:
+        if check < min_val: 
+            min_val = check 
+    return min_val
+
+#Definition 3 finds the sum of the list using sum and length methods of the list.
+def avg(numList):
+    return sum(numList) / len(numList) 
+
+#Definition 4 is used to sort values between a minimum and a maximum.
+def pass_check(numList, min, max):
+    count = 0 
+    for x in numList:
+        if min <= x <= max: 
+            count += 1 
+    return count 
+
+#User input takes into account the amount needed to be graded and stored as a variable.
+n = int(input("Enter inputted grades amount: "))
+
+#This variable is organized using map funciton to space out each value and add a comma and stored in a list which is stored in a variable. The list is then converted to float values.
+numList = list(map(float, input("Enter the grades followed by space ").strip().split()))
+[float(i) for i in numList]
+
+#Statements are printed using the definitions above.
+print("The average grade is" , avg(numList) )
+print("The maximum of the grades is:", max_check(numList))
+print("The minimum of the grades is:", min_check(numList))
+print("The number of passing grades is",  pass_check(numList, 70, 100))
+print("The number of failing grades is", pass_check(numList, 0, 69.9))
+
+#-----------------------------------------------------------------------------------------------------------
+
+#Lab 4E 
+#Two counters are used for each loop and 
+#a variable storing the brackets in a string.
+
+count = 1 
+count2 = 1
+
+brak = "[][][][]"
+
+#The first loop is initialized using a while 
+#statement to initialize before ending with two 
+#of the brackets with the following loop
+#finishing the set. 
+
+while count <= 2:
+    print(brak)
+    count += 1
+    while count2 <= 2: 
+        print(brak)
+        count2 += 1
+        
+#------------------------------------------------------------------------------------------------------------
+
+Lab 4G 
+#This definition checks for special characters useing a series of if statements to check the length of the string via range and length functions.
+def count_specs(userString):
+    specs = 0
+    for i in range(0, len(userString)): 
+        ch = userString[i] 
+        if (userString[i]. isalpha()): 
+            continue 
+        elif (userString[i].isdigit()): 
+            continue  
+        else: 
+            specs += 1
+    if specs >= 1: 
+        print("Number of special charcs: ", specs)
+    else: 
+        print("Number of special characs: 0")
+    
+#Three counters are used
+count = 0
+count2 = 0
+count3 = 0
+
+#The user string is stored in a variable.
+userString = input("Enter a string: ")
+
+#A for statement is used to subindex the user input. 
+for i in userString: 
+    #The counter counts upper cased letters
+    if i.isupper():
+        count += 1
+#This checks for lower cased letters
+    if i.islower():
+        count2 += 1
+#This one checks for digits 
+    if i.isdigit():
+        count3 += 1 
+
+
+print("Number of upper case characters:", count)
+print("Number of lower case characters:", count2)
+print("Number of digits:", count3)
+count_specs(userString)
+
